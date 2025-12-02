@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Tailwind mediante link-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!--Gráfico mediante link-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-[#FFFFFF] flex flex-col min-h-screen">
+<!-- barra superior -->
+<nav class="bg-[#2F4156] p-4 shadow">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="img/logo.jpg" class="w-20 h-20 object-cover rounded-full border-2 border-[#F5EFEB]">
+      <a href="index.html" class="font-bold text-xl text-[#F5EFEB]">Jóvenes Emprendedores</a>
+    </div>
+    <button id="menu-btn" class="text-[#F5EFEB] text-3xl md:hidden">☰</button>
+    <ul id="menu" class="hidden md:flex space-x-6 font-semibold text-[#F5EFEB]">
+      <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+      <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+      <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+      <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+    </ul>
+  </div>
+  <ul id="menu-mobile" class="md:hidden hidden flex-col bg-[#2F4156] text-[#F5EFEB] mt-3 p-4 rounded space-y-2">
+    <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+    <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+    <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+    <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+  </ul>
+</nav>
+<main class="flex-grow max-w-screen-lg mx-auto px-4">
+<!-- imagenes -->
+<section class="container mx-auto mt-6">
+  <div class="w-full h-64 bg-[#F5EFEB] rounded-lg flex items-center justify-center">
+    <img id="slide" src="img/logo.jpg" class="max-h-full object-contain rounded-lg">
+  </div>
+</section>
+<!-- resumen breve -->
+<section class="container mx-auto mt-8 text-center bg-[#F5EFEB] p-6 rounded shadow">
+  <h2 class="text-2xl font-bold text-[#2F4156] mb-4">
+    Impulsando a los Jóvenes Emprendedores
+  </h2>
+  <p class="text-[#2F4156]">
+    "Jóvenes Conectados" es una plataforma que impulsa la visibilidad de emprendimientos juveniles, conectando talento, clientes y oportunidades reales.
+  </p>
+  <a href="emprendedores.html" class="mt-6 inline-block bg-[#C8D9E6] text-[#2F4156] px-6 py-2 rounded font-semibold hover:bg-[#567C8D] hover:text-white"> Ver emprendedores</a>
+</section>
+<!-- cajitas de problema, solucion y un poco de contexto de datos sobre el uso de redes sociales en cr -->
+<section class="container mx-auto mt-8 max-w-screen-lg ">
+  <div class="space-y-6">
+    <!-- caja de problema -->
+    <div class="bg-[#F5EFEB] rounded shadow">
+      <button class="cajita-header w-full flex justify-between items-center p-4 text-left" data-target="panel1">
+        <span class="font-bold text-[#2F4156] text-lg text-center">Problema</span>
+        <span class="cajita-icon text-[#2F4156] text-2xl">&#9662;</span>
+      </button>
+      <div id="panel1" class="cajita-panel px-4 pb-4 hidden text-[#2F4156]">
+        <p class="text-[#2F4156] text-center">    
+          Al pesar de que en la actualidad las redes sociales y el internet son una gran herramienta la mayoría de jóvenes emprendedores no usan estas herramientas y esto representa una gran desventaja ya que esta es su mayor aliada para hacerse notar y poder ofrecer sus servicios y productos. <br> Gran parte de los jóvenes cuando están emprendiendo no logran visibilizarse, ya sea por falta de experencia, nervios o desconocimiento, la gran mayoría prefieren únicamente ofrecerle sus servicios o productos a familiares, amigos o conocidos, quedandosé estancados por no encontrar la forma de darse a conocer, las redes sociales y los sitios web son una forma sumamente vital para esto ya que gran parte de las personas hacen uso del internet y redes sociales para absolutamente todo.
+        </p>
+      </div>
+    </div>
+
+    <!-- caja de propuesta -->
+    <div class="bg-[#F5EFEB] rounded shadow">
+      <button class="cajita-header w-full flex justify-between items-center p-4 text-left" data-target="panel2">
+        <span class="font-bold text-[#2F4156] text-lg">Propuesta</span>
+        <span class="cajita-icon text-[#2F4156] text-2xl">&#9662;</span>
+      </button>
+      <div id="panel2" class="cajita-panel px-4 pb-4 hidden text-[#2F4156]">
+        <p class="text-[#2F4156] text-center">
+          Este sitio les ofrece la oportunidad de poder agregar su perfil con una descripción de lo que hacen y sus redes sociales, incentivandolos así a que las usen activamente como una herramienta que les será de gran ayuda, a su vez también permite que diferentes usuarios que accedan a este sitio pueda conocerlos y adquirir sus servicios y productos, y que de esta forma puedan aumentar no únicamente sus ventas sino su visibilidad teniendo la oportunidad de hacerse de renombre y conocidos por más personas.
+        </p>
+      </div>
+    </div>
+
+    <!-- caja con contexto del gran uso de redes socailes grafico -->
+    <div class="bg-[#F5EFEB] rounded shadow">
+      <button class="cajita-header w-full flex justify-between items-center p-4 text-left" data-target="panel3">
+        <span class="font-bold text-[#2F4156] text-lg">Contexto Actual</span>
+        <span class="cajita-icon text-[#2F4156] text-2xl">&#9662;</span>
+      </button>
+      <div id="panel3" class="cajita-panel px-4 pb-4 hidden text-[#2F4156]">
+        <p>
+          En la actualidad las redes sociales son prácticamente una necesidad para muchos, ya sea para mantenerse informado, aprender cosas nuevas o simplemente entretenerse. Por esta misma razón es que usar las redes sociales es esencial para hacerte notar, según un reporte por parte del sitio <a href="https://datareportal.com/reports/digital-2026-costa-rica" class="underline"> DataReportal</a> Costa Rica tenía a finales de este 2025 aproximadamente 19,951 millones de usuarios en diferentes redes sociales como Facebook, Instagram, Tik Tok, YouTube, etc. <br><br> A continuación podrá encontrar un gráfico mostrando dichos datos de mejor manera:
+        </p>
+        <h3 class="text-xl font-bold text-[#2F4156] mt-4 mb-2 text-center" >Redes sociales en Costa Rica 2025</h3>
+        <canvas id="grafico"></canvas>
+      </div>
+    </div>
+
+</section>
+</main>
+<!-- parte de abajo -->
+<footer class="mt-12">
+  <div class="h-2 bg-gradient-to-r from-[#2F4156] via-[#567C8D] to-[#C8D9E6]"></div>
+  <div class="bg-[#2F4156] text-[#F5EFEB] py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+      <div>
+        <h3 class="font-bold text-lg mb-2">Jóvenes Emprendedores</h3>
+        <p class="text-sm">Impulsando la visibilidad digital de proyectos juveniles.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Navegación</h3>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+          <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+          <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+          <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Proyecto</h3>
+        <p class="text-sm">UTN — Diseño de Aplicaciones Web</p>
+        <p class="text-sm">Estudiante: Dereck Jiménez</p>
+      </div>
+    </div>
+    <div class="mt-6 text-center border-t border-[#567C8D] pt-3 text-sm">
+      © 2025 Jóvenes Emprendedores
+    </div>
+  </div>
+</footer>
+<!-- javascript usados -->
+<script src="JS/menu.js"></script>
+<script src="JS/carrusel.js"></script>
+<script src="JS/grafico.js"></script>
+<script src="JS/cajas.js"></script>
+</body>
+</html>

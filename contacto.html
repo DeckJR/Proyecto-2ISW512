@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>contacto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Tailwind mediante link-->
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* estilo para que el mapa no se vuele encima del modal */
+    .leaflet-container {
+      z-index: 0 !important;
+    }
+
+    #modalDatos {
+      z-index: 9999 !important;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+</style>
+</head>
+<body class="bg-[#FFFFFF] flex flex-col min-h-screen">
+<!-- barra superior -->
+<nav class="bg-[#2F4156] p-4 shadow">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="img/logo.jpg" class="w-20 h-20 object-cover rounded-full border-2 border-[#F5EFEB]">
+      <a href="index.html" class="font-bold text-xl text-[#F5EFEB]">Jóvenes Emprendedores</a>
+    </div>
+    <button id="menu-btn" class="text-[#F5EFEB] text-3xl md:hidden">☰</button>
+    <ul id="menu" class="hidden md:flex space-x-6 font-semibold text-[#F5EFEB]">
+      <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+      <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+      <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+      <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+    </ul>
+  </div>
+  <ul id="menu-mobile" class="md:hidden hidden flex-col bg-[#2F4156] text-[#F5EFEB] mt-3 p-4 rounded space-y-2">
+    <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+    <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+    <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+    <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+  </ul>
+</nav>
+<main class="flex-grow max-w-screen-lg mx-auto px-4">
+<section class="container mx-auto mt-10 grid md:grid-cols-2 gap-6">
+
+  <!-- formulario -->
+  <div class="bg-[#F5EFEB] p-6 rounded-lg shadow">
+    <h2 class="text-2xl font-bold text-[#2F4156] mb-6 text-center">
+    Formulario de Contacto
+  </h2>
+  <!-- se usa correo personal, un método en JS para validar el captcha -->
+  <form action="https://formsubmit.co/dereckalonsoj.r@gmail.com" method="POST" class="space-y-4" onsubmit="return validarCaptcha()">
+    <!-- fecha -->
+    <div>
+      <label class="font-semibold text-[#2F4156]">Fecha</label>
+      <input type="date" name="date" required class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]">
+    </div>
+    <!-- nombre -->
+    <div>
+      <label class="font-semibold text-[#2F4156]">Nombre</label>
+      <input type="text" name="name" required placeholder="Nombre" class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]">
+    </div>
+    <!-- genro -->
+    <div>
+      <p class="font-semibold text-[#2F4156]">Sexo</p>
+      <div class="flex gap-4 text-[#2F4156]">
+        <label><input type="radio" name="sexo" value="Hombre"> Hombre</label>
+        <label><input type="radio" name="sexo" value="Mujer"> Mujer</label>
+        <label><input type="radio" name="sexo" value="Otro"> Otro</label>
+      </div>
+    </div>
+    <!-- numero -->
+    <div>
+      <label class="font-semibold text-[#2F4156]">Teléfono</label>
+      <input type="tel" name="phone" required placeholder="Teléfono" class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]">
+    </div>
+    <!-- correo -->
+    <div>
+      <label class="font-semibold text-[#2F4156]">Email</label>
+      <input type="email" name="email" required placeholder="ejemplo@email.com"
+        class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]">
+    </div>
+    <!-- mensaje -->
+    <div>
+      <label class="font-semibold text-[#2F4156]">Mensaje</label>
+      <textarea name="message" rows="5" required placeholder="Mensaje" class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]"></textarea>
+    </div>
+    <!-- recaptcha de gogle -->
+    <div class="g-recaptcha" data-sitekey="6LdnhR4sAAAAAPWUzaeuMkTjVvJ_OR8olkTJhD0n"></div>
+    <!-- botones de limpiza y enviar -->
+    <div class="flex justify-between mt-4">
+      <input type="reset" value="Limpiar" class="bg-gray-300 px-4 py-2 rounded font-semibold hover:bg-gray-400 cursor-pointer">
+      <button type="submit" class="bg-[#C8D9E6] text-[#2F4156] px-4 py-2 rounded font-semibold hover:bg-[#567C8D] hover:text-white">
+        Enviar
+      </button>
+    </div>
+    <!-- copia para el usuario (Presenta fallos, mejor no usar) -->
+    <input type="hidden" name="_autoresponse" value="Gracias por contactarnos. Esta es una copia de tu mensaje.">
+    <!-- forma de vista en nuestro correo -->
+    <input type="hidden" name="_template" value="box">
+    <!-- desactivar el captcha del api para que no genere problemas -->
+    <input type="hidden" name="_captcha" value="false">
+    <!-- rediccenoramiento a la misma página para que no salga la del api -->
+    <input type="hidden" name="_next" value="contacto.html">
+</form>
+<!-- cuadrito de verificación de datos antes de enviar-->
+<div id="modalDatos" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center z-50 transition-opacity duration-300">
+  <div class="bg-white p-6 rounded-lg shadow max-w-md w-full">
+    <h3 class="text-xl font-bold mb-4 text-center text-[#2F4156]">Confirmar Datos</h3>
+    <div id="contenidoModal" class="space-y-2 text-[#2F4156]"></div>
+    <!-- botones para enviarlo o cancelar el envio-->
+    <div class="flex justify-between mt-6">
+      <button onclick="cerrarModal()" class="px-4 py-2 bg-gray-300 rounded">Cancelar</button>
+      <button onclick="enviarFormulario()" class="px-4 py-2 bg-[#567C8D] text-white rounded">Confirmar</button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- mapa usando otro api jaja -->
+  <div class="bg-[#F5EFEB] p-5 rounded-lg shadow">
+    <h2 class="text-2xl font-bold text-[#2F4156] mb-4 text-center">Ubicación</h2>
+    <div id="mapa" class="w-full h-96 rounded-lg"></div>
+    <img src="img/logo.jpg" alt="Logo sitio web" class="py-2">
+  </div>
+</section>  
+</main>
+<!-- parte de abajo -->
+<footer class="mt-12">
+  <div class="h-2 bg-gradient-to-r from-[#2F4156] via-[#567C8D] to-[#C8D9E6]"></div>
+  <div class="bg-[#2F4156] text-[#F5EFEB] py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+      <div>
+        <h3 class="font-bold text-lg mb-2">Jóvenes Emprendedores</h3>
+        <p class="text-sm">Impulsando la visibilidad digital de proyectos juveniles.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Navegación</h3>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+          <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+          <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+          <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Proyecto</h3>
+        <p class="text-sm">UTN — Diseño de Aplicaciones Web</p>
+        <p class="text-sm">Estudiante: Dereck Jiménez</p>
+      </div>
+    </div>
+    <div class="mt-6 text-center border-t border-[#567C8D] pt-3 text-sm">
+      © 2025 Jóvenes Emprendedores
+    </div>
+  </div>
+</footer>
+<!-- cosas necesarias para los api's, javascript, recaptcha, etc-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="JS/contacto.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="JS/menu.js"></script>
+</body>
+</html>

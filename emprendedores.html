@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>emprendores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Tailwind mediante link-->
+  <script src="https://cdn.tailwindcss.com"></script>  
+  <!--Gráfico mediante link-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* animación para resaltar la card */
+    .card-highlight {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.18);
+    transition: 0.2s ease;
+    }
+    .card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+    /* Suave aparición */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      animation: fadeUp 0.4s ease;
+    }
+  </style>
+</head>
+<body class="bg-[#FFFFFF] flex flex-col min-h-screen">
+<!-- barra superior -->
+<nav class="bg-[#2F4156] p-4 shadow">
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <img src="img/logo.jpg" class="w-20 h-20 object-cover rounded-full border-2 border-[#F5EFEB]">
+      <a href="index.html" class="font-bold text-xl text-[#F5EFEB]">Jóvenes Emprendedores</a>
+    </div>
+    <button id="menu-btn" class="text-[#F5EFEB] text-3xl md:hidden">☰</button>
+    <ul id="menu" class="hidden md:flex space-x-6 font-semibold text-[#F5EFEB]">
+      <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+      <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+      <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+      <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+    </ul>
+  </div>
+  <ul id="menu-mobile" class="md:hidden hidden flex-col bg-[#2F4156] text-[#F5EFEB] mt-3 p-4 rounded space-y-2">
+    <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+    <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+    <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+    <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+  </ul>
+</nav>
+<!-- contenido de propuesta -->
+<main class="flex-grow max-w-screen-lg mx-auto px-4">
+  <section class="container mx-auto mt-8 mb-10 text-center">
+      <h2 class="text-2xl font-bold text-[#2F4156] mb-2">
+      Jóvenes Emprendedores
+      </h2>
+      <p class="text-[#2F4156]">
+      Descubre emprendimientos locales y apoya el talento juvenil.
+      </p>
+  <section class="grid md:grid-cols-3 gap-4 p-8 items-end mb-6">
+    <div>
+      <label class="font-semibold text-[#2F4156]">Buscar</label>
+      <input id="buscador" type="search" placeholder="Buscar por nombre o palabra clave" class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]" aria-label="Buscar emprendedor">
+    </div>
+
+      <div>
+        <label class="font-semibold text-[#2F4156]">Categoría</label>
+        <select id="filtroCategoria" class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]" aria-label="Filtrar por categoría">
+          <option value="all">Todas</option>
+          <option value="belleza">Belleza</option>
+          <option value="comida">Comida</option>
+          <option value="personal">Cuidado personal</option>
+          <option value="hogar">Productos para hogar</option>
+          <option value="servicios">Servicios</option>
+          <option value="tecnologia">Tecnología</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold text-[#2F4156]">Ordenar</label>
+        <select id="orden" class="w-full border p-2 rounded mt-1 focus:ring-2 focus:ring-[#567C8D]" aria-label="Ordenar">
+          <option value="recomendado">Recomendado</option>
+          <option value="alfabetico">A → Z</option>
+        </select>
+      </div>
+  </section>
+    <!-- Emprendedores --> 
+      <div id="gridEmprendedores" class="grid grid-cols-1 md:grid-cols-3 gap-4" aria-live="polite"></div>
+    </section>
+  <section class="container mx-auto mt-8 text-center mb-10 bg-[#F5EFEB] p-6 rounded shadow">
+  <h2 class="text-2xl font-bold text-[#2F4156] mb-4">
+    Datos importantes
+  </h2>
+  <p> En la actualidad las redes sociales son prácticamente una necesidad para muchos, ya sea para mantenerse informado, aprender cosas nuevas o simplemente entretenerse. Por esta misma razón es que usar las redes sociales es esencial para hacerte notar, según un reporte por parte del sitio <a href="https://datareportal.com/reports/digital-2026-costa-rica" class="underline"> DataReportal</a> Costa Rica tenía a finales de este 2025 aproximadamente 19,951 millones de usuarios en diferentes redes sociales como Facebook, Instagram, Tik Tok, YouTube, etc. <br><br> A continuación podrá encontrar un gráfico mostrando dichos datos de mejor manera: </p>
+        <h3 class="text-xl font-bold text-[#2F4156] mt-4 mb-2 text-center" >Redes sociales en Costa Rica 2025</h3>
+        <canvas id="grafico"></canvas>
+  </section>
+  <section class="container mx-auto mb-10 text-center bg-[#F5EFEB] p-6 shadow">
+  <h2 class="text-2xl font-bold text-[#2F4156] mb-4">
+    Calculadora de incremento
+  </h2>
+  <p > A continuación podrá calcular un aproximado de que tanto puede incrementar sus ventas dependiendo de la red social.</p> <br>
+        <label class="font-semibold">Ventas actuales:</label>
+        <input id="ventas" type="number" class="w-full border p-2 rounded mb-4" placeholder="Ej: 150">
+        <label class="font-semibold">Red social:</label>
+        <select id="redsocial" class="w-full border p-2 rounded mb-4">
+        <option value="YouTube">YouTube</option>
+        <option value="Facebook">Facebook</option>
+        <option value="Instagram">Instagram</option>
+        <option value="TikTok">TikTok</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Messenger">Messenger</option>
+        <option value="Snapchat">Snapchat</option>
+        <option value="Reddit">Reddit</option>
+        <option value="X">X</option>
+        </select>
+        <button onclick="calcular()" class="bg-[#C8D9E6] text-[#2F4156] px-4 py-2 rounded font-semibold hover:bg-[#567C8D] hover:text-white">Calcular visibilidad</button>
+        <p id="resultado" class="mt-4 text-lg font-bold text-[#2F4156]"></p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="h-2 bg-gradient-to-r from-[#2F4156] via-[#567C8D] to-[#C8D9E6]"></div>
+
+  <div class="bg-[#2F4156] text-[#F5EFEB] py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+
+      <div>
+        <h3 class="font-bold text-lg mb-2">Emprende Joven</h3>
+        <p class="text-sm">Plataforma digital que impulsa a jóvenes emprendedores.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-2">Navegación</h3>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="hover:text-white">Inicio</a></li>
+          <li><a href="emprendedores.html" class="hover:text-white">Emprendedores</a></li>
+          <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+          <li><a href="acercade.html" class="hover:text-white">Acerca de</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-2">Información</h3>
+        <p class="text-sm">Proyecto académico UTN</p>
+        <p class="text-sm">ISW-512</p>
+        <p class="text-sm">Estudiante: Dereck Jiménez</p>
+      </div>
+
+    </div>
+
+    <div class="mt-6 text-center border-t border-[#567C8D] pt-3 text-sm">
+      © 2025 Emprende Joven
+    </div>
+  </div>
+</footer>
+<!-- Menú hamburguesa -->
+<script src="JS/menu.js"></script>
+<script src="JS/grafico.js"></script>
+<script src="JS/calculadora.js"></script>
+<script src="JS/emprendedores.js"></script>
+</body>
+</html>

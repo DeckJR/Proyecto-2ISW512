@@ -1,0 +1,135 @@
+[
+    {
+        "nombre": "Panadería La Esperanza",
+        "descripcion": "Repostería artesanal, panes frescos y productos hechos a mano.",
+        "categoria": "comida",
+        "imagen": "img/emprendedor1.jpg"
+    },
+    {
+        "nombre": "EcoAccesorios CR",
+        "descripcion": "Accesorios sostenibles hechos con materiales reciclados.",
+        "categoria": "hogar",
+        "imagen": "img/emprendedor2.jpg"
+    },
+    {
+        "nombre": "Digital Creators",
+        "descripcion": "Servicios de diseño gráfico, branding y contenido digital.",
+        "categoria": "tecnologia",
+        "imagen": "img/emprendedor3.jpg"
+    },
+    {
+        "nombre": "Dulce Encanto CR",
+        "descripcion": "Postres caseros, pasteles decorados y repostería creativa.",
+        "categoria": "comida",
+        "imagen": "img/dulce.jpg"
+    },
+    {
+        "nombre": "Manos de Oro",
+        "descripcion": "Servicios de manicure y pedicure profesional.",
+        "categoria": "personal",
+        "imagen": "img/manicure.jpg"
+    },
+    {
+        "nombre": "Casa Verde",
+        "descripcion": "Productos para el hogar hechos de materiales ecoamigables.",
+        "categoria": "hogar",
+        "imagen": "img/casaverde.jpg"
+    },
+    {
+        "nombre": "TechSolutions",
+        "descripcion": "Soporte técnico, instalación de software y reparación básica.",
+        "categoria": "tecnologia",
+        "imagen": "img/techsolutions.jpg"
+    },
+    {
+        "nombre": "Artesanías Montaña Azul",
+        "descripcion": "Artesanías hechas a mano con madera, barro y fibras naturales.",
+        "categoria": "hogar",
+        "imagen": "img/artesanias.jpg"
+    },
+    {
+        "nombre": "Glow Beauty CR",
+        "descripcion": "Maquillaje profesional para eventos, sesiones y bodas.",
+        "categoria": "belleza",
+        "imagen": "img/glow.jpg"
+    },
+    {
+        "nombre": "La Michi Cocina",
+        "descripcion": "Panadería, repostería y pastelería artesanal inspirada en recetas caseras.",
+        "categoria": "comida",
+        "imagen": "img/michi_cocina.jpg",
+        "contactoEspecial": "https://angelica-solis.github.io/proyecto1/contacto.html"
+    },
+    {
+        "nombre": "La Michi Tienda",
+        "descripcion": "Artículos para el hogar, detalles decorativos y regalos personalizados.",
+        "categoria": "hogar",
+        "imagen": "img/michi_tienda.jpg"
+    },
+    {
+        "nombre": "Fragancias Matus",
+        "descripcion": "Perfumes personalizados y fragancias artesanales exclusivas.",
+        "categoria": "belleza",
+        "imagen": "img/fragancias.jpg"
+    },
+    {
+        "nombre": "FitLife CR",
+        "descripcion": "Planes de entrenamiento y asesorías de bienestar personal.",
+        "categoria": "servicios",
+        "imagen": "img/fitlife.jpg"
+    },
+    {
+        "nombre": "Café Valle Alto",
+        "descripcion": "Café de especialidad producido por jóvenes emprendedores.",
+        "categoria": "comida",
+        "imagen": "img/cafe.jpg"
+    },
+    {
+        "nombre": "SoftMint Developers",
+        "descripcion": "Desarrollo web para pymes y emprendimientos.",
+        "categoria": "tecnologia",
+        "imagen": "img/softmint.jpg"
+    },
+    {
+        "nombre": "Bloom Skincare",
+        "descripcion": "Productos naturales para el cuidado de la piel.",
+        "categoria": "personal",
+        "imagen": "img/bloom.jpg"
+    },
+    {
+        "nombre": "EcoRopa CR",
+        "descripcion": "Ropa reciclada, moda sostenible y accesorios ecofriendly.",
+        "categoria": "hogar",
+        "imagen": "img/ecoropa.jpg"
+    },
+    {
+        "nombre": "Pastas Don Nico",
+        "descripcion": "Pasta artesanal hecha a mano con ingredientes frescos.",
+        "categoria": "comida",
+        "imagen": "img/pastas.jpg"
+    },
+    {
+        "nombre": "Solux Studio",
+        "descripcion": "Fotografía profesional y edición creativa.",
+        "categoria": "servicios",
+        "imagen": "img/solux.jpg"
+    },
+    {
+        "nombre": "Hogar Azul",
+        "descripcion": "Decoración minimalista, muebles pequeños y accesorios.",
+        "categoria": "hogar",
+        "imagen": "img/hogarazul.jpg"
+    },
+    {
+        "nombre": "Crafty Kids CR",
+        "descripcion": "Juguetes didácticos hechos a mano para niños.",
+        "categoria": "hogar",
+        "imagen": "img/craftykids.jpg"
+    },
+    {
+        "nombre": "PixelUp",
+        "descripcion": "Edición de videos, reels y contenido para redes.",
+        "categoria": "tecnologia",
+        "imagen": "img/pixelup.jpg"
+    }
+]
